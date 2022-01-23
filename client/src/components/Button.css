@@ -1,0 +1,28 @@
+.PositiveBtn{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #0657e8;
+    color: #0657e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat';
+    height: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform:uppercase;
+}
+.PositiveBtn:hover{
+    background-color: #0657e8;
+    color: white;
+}
+.negative:hover{
+    background-color: #e82606;
+    color: white;
+}
+.negative{
+    border: 1px solid #e82606;
+    color: #e82606;
+
+
+}

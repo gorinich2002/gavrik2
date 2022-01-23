@@ -1,0 +1,3 @@
+{
+    "mongo" : "mongodb+srv://user:useruser@cluster0.p5hby.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

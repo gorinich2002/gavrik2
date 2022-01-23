@@ -1,0 +1,7 @@
+.Content{
+    box-sizing: border-box;
+    padding: 20px 100px 100px 20px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}

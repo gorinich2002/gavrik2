@@ -1,0 +1,45 @@
+.Counter{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #0657e8;
+    color: #0657e8;
+    display: flex;
+    
+    align-items: center;
+    font-family: 'Montserrat';
+    
+   
+    font-weight: 600;
+    text-transform:uppercase;
+    margin-bottom: 10px;
+}
+.Counter input{
+    text-align: center;
+    
+    border: none;
+}
+.Counter input:focus{
+ 
+    
+    border: none;
+}
+.Counter .minusBtn{
+    border-right: 1px solid #0657e8;
+    
+}
+.Counter .plusBtn{
+    border-left: 1px solid #0657e8;
+    
+    
+}
+.Counter div{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}

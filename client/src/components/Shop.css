@@ -1,0 +1,27 @@
+.routeName{
+    margin-right: auto;
+    margin-left: auto;
+}
+.prodcuctPagination{
+    list-style: none;
+    display: flex;
+    
+    justify-content: center;
+    font-family: "Roboto";
+}
+.prodcuctPagination__punkt{
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: grey;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prodcuctPagination__punkt_active{
+    
+    background-color: orange;
+    
+}
