@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useMemo, useRef,useState
 } from "react";
 
 import './Shop.css'
+import { Pagination } from 'antd';
 
 
 
@@ -45,7 +46,7 @@ function Shop(props){
     useEffect(()=>{
         getProducts(paginationNum).then(prodList=>{
             setProductList(prodList.data.pageList);
-            let pagCount =  Math.ceil( prodList.data.count/15)
+            let pagCount =  Math.ceil( prodList.data.count)
             setPaginationCount(pagCount);
             setLoaded(true);
 
@@ -55,19 +56,10 @@ function Shop(props){
     if(isLoaded){
     return(
         <>
-            <h3 className='routeName'>Shop</h3>
             <ProductList prodArray={productList} />
            
+            <Pagination className='prodcuctPagination' current={paginationNum+1} total={paginationCount -1} pageSize={15} onChange={(page=>{setPaginationNum(page-1)})} />
             
-                <ul className='prodcuctPagination'>
-                    <li className="prodcuctPagination__punkt" onClick={paginationDecrementHandler}>{"<"}</li>
-                    {paginationArray.map((e)=>{
-                        
-                        return <li className={e-1==paginationNum?"prodcuctPagination__punkt prodcuctPagination__punkt_active":"prodcuctPagination__punkt"} onClick={paginationHandler}>{e}</li>
-                        })}
-                    <li className="prodcuctPagination__punkt"  onClick={paginationIncrementHandler}>{">"}</li>
-
-                </ul> 
             
         </>
     )

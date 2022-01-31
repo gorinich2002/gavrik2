@@ -1,14 +1,14 @@
 import './ProductCard.css'
-import Button from './Button'
+// import Button from './Button'
 import {addProduct} from '../cartHandlers/addProduct';
 import {deleteProduct} from '../cartHandlers/deleteProduct';
 import {isProductInCart} from '../cartHandlers/isProductInCart';
 import { useEffect, useState } from 'react';
 import {Counter} from './Counter';
-
+import { Card, Input, Button } from 'antd';
 
 function ProductCard(props){
-    let product = props.product;
+    let product = {... props.product, price: +props.product.price};
     
     let [inCart,setInCart] = useState(isProductInCart(product));
     let [countValue,setCountValue] = useState(1);
@@ -31,17 +31,17 @@ function ProductCard(props){
     }
     useEffect(()=>{product.count=countValue},[countValue])
     // console.log(inCart)
+    console.log(product)
     return(
-        <div className='productCard'>
+        <Card className='productCard'>
             <img src={product.imgSrc}/>
-            <span>{product.productName}</span>
-            <b>{product.price} ₽</b>
-            
-            {inCart?<Button btnHandler={()=>{deleteProduct(product);setInCart(false)}} text="Удалить из корзину"/>
-            :<><Counter inputHandler={inputHandler} decrementHandler={decrementHandler} incrementHandler={incrementHandler} countValue={countValue}/>
-            <Button btnHandler={()=>{addProduct(product);setInCart(true)}} text="В корзину"/></> }
+            <h3>{product.productName}</h3>
+            <h2>{product.price} ₽</h2>
+            <Counter disable={inCart} inputHandler={inputHandler} decrementHandler={decrementHandler} incrementHandler={incrementHandler} countValue={countValue}/>
+            {inCart?<Button danger className='actionBtn' onClick={()=>{deleteProduct(product);setInCart(false)}} >Удалить из корзины</Button>
+            :<Button  className='actionBtn' type="primary" onClick={()=>{addProduct(product);setInCart(true)}}>В корзину</Button>}
             {/* <PositiveBtn btnHandler={()=>{deleteProduct(product)}} text="Удалить из корзину"/> */}
-        </div>
+        </Card>
     )
 }
 export default ProductCard;

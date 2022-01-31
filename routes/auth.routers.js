@@ -6,7 +6,7 @@ const fs = require('fs');
 
 
 router.post(
-  "/order",
+  "/auth",
   express.urlencoded({extended: false}),
   async (req, res) => {
     try {

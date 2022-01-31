@@ -15,8 +15,6 @@ function isProductInCart(product){
             delete copyEl.count;
         }
         copyEl = JSON.stringify(copyEl)
-        console.log(copyEl)
-        console.log(prodStr)
 
         if(copyEl == prodStr){
             returnBool = true;
