@@ -1,5 +1,8 @@
 //local storage 
 function addProduct(productPos){
+    if(productPos.count < 1){
+        return false
+    }
     let cart = localStorage.getItem('cart')
     
     if(!cart ){
@@ -13,6 +16,7 @@ function addProduct(productPos){
 
     
     localStorage.setItem('cart', JSON.stringify(cart))
+    return true
 }
 
 

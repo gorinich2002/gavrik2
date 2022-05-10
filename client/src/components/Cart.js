@@ -10,7 +10,6 @@ function Cart() {
     try {
         let totalPrice = 0;
         function delElFromProductlist(elNum) {
-            console.log(elNum)
             deleteProduct(elNum)
             checkProductList()
         }

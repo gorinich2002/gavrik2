@@ -31,7 +31,6 @@ function ProductCard(props){
     }
     useEffect(()=>{product.count=countValue},[countValue])
     // console.log(inCart)
-    console.log(product)
     return(
         <Card className='productCard'>
             <img src={product.imgSrc}/>
@@ -39,7 +38,7 @@ function ProductCard(props){
             <h2>{product.price} ₽</h2>
             <Counter disable={inCart} inputHandler={inputHandler} decrementHandler={decrementHandler} incrementHandler={incrementHandler} countValue={countValue}/>
             {inCart?<Button danger className='actionBtn' onClick={()=>{deleteProduct(product);setInCart(false)}} >Удалить из корзины</Button>
-            :<Button  className='actionBtn' type="primary" onClick={()=>{addProduct(product);setInCart(true)}}>В корзину</Button>}
+            :<Button  className='actionBtn' type="primary" onClick={()=>{if(addProduct(product)){setInCart(true)}}}>В корзину</Button>}
             {/* <PositiveBtn btnHandler={()=>{deleteProduct(product)}} text="Удалить из корзину"/> */}
         </Card>
     )
