@@ -1,6 +1,6 @@
 import './ProductCard.css'
 // import Button from './Button'
-import {addProduct} from '../cartHandlers/addProduct';
+import addProduct from '../cartHandlers/addProduct';
 import {deleteProduct} from '../cartHandlers/deleteProduct';
 import {isProductInCart} from '../cartHandlers/isProductInCart';
 import { useEffect, useState } from 'react';

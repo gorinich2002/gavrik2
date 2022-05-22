@@ -1,5 +1,5 @@
 //local storage 
-function addProduct(productPos){
+export default function addProduct(productPos){
     if(productPos.count < 1){
         return false
     }
@@ -18,7 +18,3 @@ function addProduct(productPos){
     localStorage.setItem('cart', JSON.stringify(cart))
     return true
 }
-
-
-
-module.exports = {addProduct};
