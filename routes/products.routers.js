@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const router = Router();
 const fs = require('fs');
+const authMiddleware = require("../middleware/auth.middleware")
 
 router.get(
   "/products",
+  authMiddleware,
   async (req, res) => {
     try {
       let pageNum = req.query["pagenum"] ||  0;

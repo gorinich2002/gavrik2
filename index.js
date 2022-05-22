@@ -5,6 +5,7 @@ const fs = require("fs")
 const app = express();
 const path  = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
 
 try{
   
@@ -17,8 +18,7 @@ catch(e){
   console.log(e)
 }
 
-
-
+app.use(cookieParser())
 app.use(express.json({extended:true}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -27,6 +27,8 @@ const PORT = process.env.PORT|| 8080;
 
 app.use('/api', require('./routes/products.routers'))
 app.use('/api', require('./routes/order.routers'))
+app.use('/api', require('./routes/auth.router'))
+
 
 
 // if (process.env.NODE_ENV === 'production') {
@@ -39,11 +41,11 @@ app.use('/api', require('./routes/order.routers'))
 
 async function start() {
   try {
-    // await mongoose.connect(config.get("mongoUri"), {
-    //     useNewUrlParser: true,
-    //     useCreateIndex: true,
-    //     useUnifiedTopology: true
-    // });
+    await mongoose.connect(config.get("mongo"), {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    });
 
     app.listen(PORT, () =>
       console.log(`App has been started on port ${PORT}...`)

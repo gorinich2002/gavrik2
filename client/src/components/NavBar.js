@@ -10,6 +10,8 @@ function NavBar(props) {
             <Button type='text'><Link to="/main">Главная</Link></Button>
             <Button type='text'><Link to="/shop">Каталог</Link></Button>
             <Button type='text'><Link to="/cart">Корзина</Link></Button>
+            <Button type='text'><a href='./api/logout'>Выйти</a></Button>
+
         </>
 
         // <nav className='nagationList'>

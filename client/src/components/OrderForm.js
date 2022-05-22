@@ -1,4 +1,4 @@
-import { Card, Input, Form, Button,Row, Col } from 'antd';
+import { Card, Input, Form, Button,Row, Col, message } from 'antd';
 import { useRef } from 'react';
 import './OrderForm.css'
 
@@ -20,14 +20,16 @@ function OrderForm() {
         formData.cart = JSON.parse(localStorage.cart);
 
         axios.post('/api/order', formData).then(res => {
-            if (res.status == 400) {
-                alert('Ошибка при заполнении формы')
-            }
-            let msg = res.data.messege
-            alert(msg)
-            if (res.status == 200) {
+            if(res.data.msgType == 'err'){
+                message.error(res.data.msg)
+            }else if(res.data.msgType == 'success'){
+                message.success(res.data.msg)
                 localStorage.cart = [];
+                window.location.pathname = '/main'
+            }else{
+                message.in(res.data.msg)
             }
+
         })
 
     }

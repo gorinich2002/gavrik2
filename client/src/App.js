@@ -1,4 +1,3 @@
-import {createContext} from 'react';
 
 
 import logo from './logo.svg';
@@ -13,20 +12,19 @@ import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
 // import { addProductToCartAction } from "./actions/actions";
 // import mainShopReduser from "./redusers/mainReduser";
 
+import checkAuth from './httpFunctions/checkAuth'
 
 //import components
-import Header from'./components/Header'
-import NavBar from'./components/NavBar'
-import Content from'./components/Content'
+import Header from './components/Header'
+import NavBar from './components/NavBar'
+import Content from './components/Content'
 import Cart from './components/Cart';
-import Footer from'./components/Footer'
 import Shop from './components/Shop';
 import Main from './components/Main';
 import OrderForm from './components/OrderForm';
-
-
-
-
+import RegistrationForm from './components/RegistrationForm';
+import LoginForm from './components/LoginForm'
+import { useEffect, useState } from 'react';
 
 
 // const initialState = {};
@@ -34,42 +32,64 @@ import OrderForm from './components/OrderForm';
 // const reduxContext = createContext();
 
 function App() {
- 
+  const [isAuth, setAuth] = useState(false);
+  useEffect(async ()=>{
+    let isAuth = await checkAuth();
+    console.log(isAuth)
+    setAuth(isAuth) 
+  })
+  if(!isAuth){
+    return  <BrowserRouter >
+      <LoginForm/>
+    </BrowserRouter>
+  }
   return (
-   <BrowserRouter>
-      <Header>
-        <NavBar/>
-        
-      
-      </Header>
-      <Content>
-     
-       
-       <Switch>
-            <Route path="/main">
-              <Main/>
-            </Route>
-            <Route path="/shop">
-              <Shop/>
-            </Route>
-            <Route path="/cart">
-              <Cart/>
-            </Route>
-            <Route path="/order">
-              <OrderForm/>
-            </Route>
-            <Redirect to="/main"></Redirect>
-        </Switch>
-            
-      
-      </Content>
-
-      <Footer> <NavBar/></Footer>
-      </BrowserRouter>
-   
+    <BrowserRouter>
+      <Switch>
+        <Route path="/main">
+          <Header>
+            <NavBar />
+          </Header>
+          <Content>
+            <Main />
+          </Content>
+        </Route>
+        <Route path="/shop">
+          <Header>
+            <NavBar />
+          </Header>
+          <Content>
+            <Shop />
+          </Content>
+        </Route>
+        <Route path="/cart">
+          <Header>
+            <NavBar />
+          </Header>
+          <Content>
+            <Cart />
+          </Content>
+        </Route>
+        <Route path="/order">
+          <Header>
+            <NavBar />
+          </Header>
+          <Content>
+            <OrderForm />
+          </Content>
+        </Route>
+        <Route path="/signup">
+          <RegistrationForm />
+        </Route>
+        <Route path="/signin">
+          <LoginForm />
+        </Route>
+        <Redirect to="/signin" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
 
 
-export {App};
+export { App };
