@@ -17,7 +17,7 @@ try{
 catch(e){
   console.log(e)
 }
-app.use(express.static('/', express.static(__dirname + '/client/build')));
+app.use( express.static(__dirname + '/client/build'));
 app.use(cookieParser())
 app.use(express.json({extended:true}))
 app.use(bodyParser.json());
