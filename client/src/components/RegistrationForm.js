@@ -24,7 +24,7 @@ export default function RegistrationForm() {
     return (
         <Card className='OrderForm'>
             <form>
-            <h2>Зарегестрироваться</h2>
+            <h2>Зарегистрироваться</h2>
                 <Form.Item
                     label="Имя"
                     name="name"

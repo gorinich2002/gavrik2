@@ -5,7 +5,7 @@ import './App.css';
 
 
 // import ReactDOM from "react-dom";
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
+import { Route, BrowserRouter, Switch, Redirect, withRouter } from "react-router-dom";
 
 //rexux imports
 // import { createStore } from 'redux' 
@@ -46,42 +46,22 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/main">
-          <Header>
-            <NavBar />
-          </Header>
-          <Content>
-            <Main />
-          </Content>
+        <Route exact path="/main">
+          {withRouter(<><Header><NavBar /></Header><Content><Main /></Content></>)}
         </Route>
-        <Route path="/shop">
-          <Header>
-            <NavBar />
-          </Header>
-          <Content>
-            <Shop />
-          </Content>
+        <Route exact path="/shop">
+          {withRouter(<><Header><NavBar /></Header><Content><Shop /></Content></>)}
         </Route>
-        <Route path="/cart">
-          <Header>
-            <NavBar />
-          </Header>
-          <Content>
-            <Cart />
-          </Content>
+        <Route exact path="/cart">
+          {withRouter(<><Header><NavBar /></Header><Content><Cart /></Content></>)}
         </Route>
-        <Route path="/order">
-          <Header>
-            <NavBar />
-          </Header>
-          <Content>
-            <OrderForm />
-          </Content>
+        <Route exact path="/order">
+          {withRouter(<><Header><NavBar /></Header><Content><OrderForm /></Content></>)}
         </Route>
-        <Route path="/signup">
+        <Route exact path="/signup">
           <RegistrationForm />
         </Route>
-        <Route path="/signin">
+        <Route exact path="/signin">
           <LoginForm />
         </Route>
         <Redirect to="/signin" />
