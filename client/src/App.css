@@ -35,7 +35,29 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.ant-page-header {
+  background-color: #007aff !important;
+  ;
+}
+
+.ant-page-header a,
+.ant-page-header span {
+  color: white !important;
+}
+
+.ant-page-header a .anticon, .ant-page-header button .anticon {
+  color: #EB6A23 !important;
+  font-size: 17px;
+  margin-right: 5px;
+}
+
+.ant-page-header b {
+  color: #EB6A23;
+  font-size: 18px;
 }

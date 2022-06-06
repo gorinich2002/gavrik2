@@ -1,10 +1,16 @@
 
 import { Link } from "react-router-dom";
-import { Tabs, Button, message } from 'antd';
+import { Button, message } from 'antd';
 import './NavBar.css'
-import { useEffect, useState } from 'react';
-import checkAuth from '../httpFunctions/checkAuth'
 import axios from 'axios'
+import {
+    ShoppingCartOutlined,
+    ExportOutlined,
+    HomeOutlined,
+    ReadOutlined,
+    ImportOutlined
+  } from '@ant-design/icons';
+
 
 function NavBar({auth, setAuth}) {
 
@@ -24,14 +30,14 @@ function NavBar({auth, setAuth}) {
     return (
         <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
-                <Button type='text'><Link to="/main">Главная</Link></Button>
-                <Button type='text'><Link to="/shop">Каталог</Link></Button>
-                <Button type='text'><Link to="/cart">Корзина</Link></Button>
+                <Button type='text'><Link to="/main"><HomeOutlined/>Главная</Link></Button>
+                <Button type='text'><Link to="/shop"><ReadOutlined/>Каталог</Link></Button>
+                <Button type='text'><Link to="/cart"> <ShoppingCartOutlined/> Корзина</Link></Button>
             </div>
-            {auth.isAuth ? auth.login : null}
+            <b>{auth.isAuth ? auth.login : null}</b>
             <div>
-                <Button type='text'><Link to="/signin">Вход</Link></Button>
-                <Button type='text' onClick={logoutHandler}>Выйти</Button>
+                <Button type='text'><Link to="/signin"><ExportOutlined style={{marginRight:10}}/>Вход</Link></Button>
+                <Button type='text' onClick={logoutHandler}><ImportOutlined/>Выйти</Button>
             </div>
         </div>
 
