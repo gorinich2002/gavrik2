@@ -38,10 +38,10 @@ function App() {
           {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><OrderForm /></Content></>)}
         </Route>
         <Route exact path="/signup">
-          <RegistrationForm />
+        {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><RegistrationForm /></Content></>)}
         </Route>
         <Route exact path="/signin">
-          <LoginForm />
+        {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><LoginForm /></Content></>)}        
         </Route>
         <Redirect to="/main" />
       </Switch>
