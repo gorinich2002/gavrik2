@@ -43,23 +43,22 @@ router.post('/login', async (req, res) => {
 
 
 });
-router.get('/api/logout', (req, res) => {
+router.get('/logout', (req, res) => {
 
-  res.cookie('token', '', { maxAge: 900000, httpOnly: true })
-    res.status(200).redirect('/')
+    res.clearCookie("token",  { httpOnly: true });
+    res.status(200).json({msgType: 'success', msg: 'Вы успешно вышли'})
 
 }
 );
-router.get('/api/checkauth', (req, res) => {
+router.get('/checkauth', (req, res) => {
   const token = req?.cookies?.token || false;
   console.log(token)
   User.findOne({ token }).then(candidate => {
     console.log(candidate)
     if (!candidate || !token) {
-      res.status(403).redirect('/')
+      res.status(200).json({isAuth:false})
     } else {
-      res.status(200).json('ok')
-      next();
+      res.status(200).json({isAuth: true, login:candidate.login})
     }
 
   })

@@ -2,19 +2,9 @@
 
 import logo from './logo.svg';
 import './App.css';
-
-
-// import ReactDOM from "react-dom";
 import { Route, BrowserRouter, Switch, Redirect, withRouter } from "react-router-dom";
-
-//rexux imports
-// import { createStore } from 'redux' 
-// import { addProductToCartAction } from "./actions/actions";
-// import mainShopReduser from "./redusers/mainReduser";
-
 import checkAuth from './httpFunctions/checkAuth'
 
-//import components
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 import Content from './components/Content'
@@ -26,37 +16,26 @@ import RegistrationForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm'
 import { useEffect, useState } from 'react';
 
-
-// const initialState = {};
-// const store = createStore(mainShopReduser);
-// const reduxContext = createContext();
-
 function App() {
-  const [isAuth, setAuth] = useState(false);
-  useEffect(async ()=>{
-    let isAuth = await checkAuth();
-    console.log(isAuth)
-    setAuth(isAuth) 
-  })
-  if(!isAuth){
-    return  <BrowserRouter >
-      <LoginForm/>
-    </BrowserRouter>
-  }
+  const [auth, setAuth] = useState(false);
+  useEffect(()=>{
+    checkAuth().then(setAuth) 
+    console.log(auth)
+  },[])
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/main">
-          {withRouter(<><Header><NavBar /></Header><Content><Main /></Content></>)}
+          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Main /></Content></>)}
         </Route>
         <Route exact path="/shop">
-          {withRouter(<><Header><NavBar /></Header><Content><Shop /></Content></>)}
+          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Shop /></Content></>)}
         </Route>
         <Route exact path="/cart">
-          {withRouter(<><Header><NavBar /></Header><Content><Cart /></Content></>)}
+          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Cart auth={auth}/></Content></>)}
         </Route>
         <Route exact path="/order">
-          {withRouter(<><Header><NavBar /></Header><Content><OrderForm /></Content></>)}
+          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><OrderForm /></Content></>)}
         </Route>
         <Route exact path="/signup">
           <RegistrationForm />
@@ -64,7 +43,7 @@ function App() {
         <Route exact path="/signin">
           <LoginForm />
         </Route>
-        <Redirect to="/signin" />
+        <Redirect to="/main" />
       </Switch>
     </BrowserRouter>
   );

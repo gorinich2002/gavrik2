@@ -2,13 +2,10 @@ const { Router } = require("express");
 const express = require("express");
 const Order = require("../models/Order")
 const router = Router();
-const fs = require('fs');
-const authMiddleware = require("../middleware/auth.middleware");
 const User = require("../models/User");
 
 router.post(
   "/order",
-  authMiddleware,
   express.urlencoded({extended: false}),
   async (req, res) => {
     try {

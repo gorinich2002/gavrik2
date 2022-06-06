@@ -1,10 +1,8 @@
 import { Typography } from 'antd';
-import checkAuth from '../httpFunctions/checkAuth'
 
 const { Title, Paragraph } = Typography;
 
 function Main(props){
-    console.log(checkAuth())
     return  <>
         <Title level={2}>О нас</Title>
         <Paragraph>Интернет-магазин — сайт, торгующий товарами в интернете. Позволяет пользователям сформировать заказ на покупку, выбрать способ оплаты и доставки заказа в сети Интернет. </Paragraph>

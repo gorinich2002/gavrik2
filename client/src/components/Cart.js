@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import './Cart.css';
 
-function Cart() {
+function Cart({auth}) {
     //const [totalPrice,setTotalPrice] = useState(0);
     const [stateToggle, setState] = useState(true);
     try {
@@ -45,7 +45,8 @@ function Cart() {
                         </tr>
                     </table>
                     <div className='btnWrapper'>
-                        <Button className='tacBtn' type='primary' size='large'><Link to="/order" >Оформить заказ</Link></Button>
+                        {auth.isAuth ? <Button className='tacBtn' type='primary' size='large'><Link to="/order" >Оформить заказ</Link></Button> 
+                        : <Button className='tacBtn' type='primary' size='large' disabled>Для оформления заказа необходимо войти</Button>}
                     </div>
                 </>
             )
@@ -61,13 +62,11 @@ function Cart() {
     }
 }
 function CartRow(props) {
-    //const [visible, setVisible] = useState(true);
+
     function deleteBtnHandler() {
         props.delFunc(props.product)
-        //setVisible(false)
     }
 
-    //if(visible){
     return (
         <tr>
             <td><img width='50' height='50' src={props.product.imgSrc} /></td>
@@ -78,11 +77,6 @@ function CartRow(props) {
 
         </tr>
     )
-    // }else{
-    //     return(
-    //         <>
-    //     </>
-    //     )
-    // }
+
 }
 export default Cart;
