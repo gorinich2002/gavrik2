@@ -28,7 +28,9 @@ const PORT = process.env.PORT|| 8080;
 app.use('/api', require('./routes/products.routers'))
 app.use('/api', require('./routes/order.routers'))
 app.use('/api', require('./routes/auth.router'))
-
+app.use(function(req, res) {
+  res.redirect('/');
+});
 
 
 // if (process.env.NODE_ENV === 'production') {
