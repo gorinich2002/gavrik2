@@ -72,10 +72,6 @@ function OrderForm() {
                 >
                     <Input name='address' type="text" />
                 </Form.Item>
-                {/* <Input name='surname' type="text" placeholder='Фамилия' />
-                <Input name='phone' type="number" placeholder='Номер телефона' />
-                <Input name='email' type="text" placeholder='Почта' />
-    <Input name='address' type="text" placeholder='Адресс' /> */}
                 <div className='btnWrapper'>
                     <Button className='' type='primary' size='large' onClick={sendForm}>Отправить</Button>
                 </div>

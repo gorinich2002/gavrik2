@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import './Cart.css';
 
 function Cart({auth}) {
-    //const [totalPrice,setTotalPrice] = useState(0);
     const [stateToggle, setState] = useState(true);
     try {
         let totalPrice = 0;
@@ -23,12 +22,6 @@ function Cart({auth}) {
                 return <CartRow product={e} delFunc={delElFromProductlist} />
             }))
         }
-
-
-
-
-        //const cartList = JSON.parse(localStorage.cart);
-
 
 
         if (productList.length > 0) {

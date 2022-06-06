@@ -26,16 +26,16 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/main">
-          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Main /></Content></>)}
+          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Main /></Content></>)}
         </Route>
         <Route exact path="/shop">
-          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Shop /></Content></>)}
+          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Shop /></Content></>)}
         </Route>
         <Route exact path="/cart">
-          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><Cart auth={auth}/></Content></>)}
+          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Cart auth={auth}/></Content></>)}
         </Route>
         <Route exact path="/order">
-          {withRouter(()=><><Header><NavBar  auth={auth}/></Header><Content><OrderForm /></Content></>)}
+          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><OrderForm /></Content></>)}
         </Route>
         <Route exact path="/signup">
           <RegistrationForm />

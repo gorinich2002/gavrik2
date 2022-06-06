@@ -1,14 +1,14 @@
 const { Schema, model, Types } = require("mongoose");
 
 const schema = new Schema({
-  products: [
-    {
-      count:{type: Number, required: true},
-      imgSrc:{type:String},
-      price:{type:Number, required: true},
-      productName:{type:String, required:true}
-    }
-  ],
+  cart: Array,
+  buyerInformation:{
+    surname:{type:String},
+    email:{type:String},
+    phone:{type:String},
+    address:{type:String},
+    firstName:{type:String}
+  },
   userLogin: {type:String, required:true}
 });
 

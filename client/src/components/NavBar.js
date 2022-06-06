@@ -6,12 +6,7 @@ import { useEffect, useState } from 'react';
 import checkAuth from '../httpFunctions/checkAuth'
 import axios from 'axios'
 
-function NavBar() {
-    const [auth, setAuth] = useState(false);
-
-    useEffect(() => {
-        checkAuth().then(setAuth)
-    }, [])
+function NavBar({auth, setAuth}) {
 
     function logoutHandler() {
         axios.get('/api/logout').then(res => {
