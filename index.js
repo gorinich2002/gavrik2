@@ -32,15 +32,6 @@ app.use(function(req, res) {
   res.redirect('/');
 });
 
-
-// if (process.env.NODE_ENV === 'production') {
-//   app.use('/', express.static('client/build'))
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-//   })
-// }
-
-
 async function start() {
   try {
     await mongoose.connect(config.get("mongo"), {
@@ -54,7 +45,6 @@ async function start() {
     );
   } catch (e) {
     console.log(e);
-    process.exit(1);
   }
 }
 

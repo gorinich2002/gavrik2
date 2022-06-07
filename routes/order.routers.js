@@ -7,6 +7,7 @@ const User = require("../models/User");
 router.post(
   "/order",
   express.urlencoded({extended: false}),
+  auth.middleware,
   async (req, res) => {
     try {
  
