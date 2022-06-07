@@ -68,7 +68,11 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.map{border:0px;
+.map{
+  top:50px;
+  border:0px;
+  margin-right: auto;
+  margin-left: auto;
     width:600px;
    height:450px;
    display: block !important;
