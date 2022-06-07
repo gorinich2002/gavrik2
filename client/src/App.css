@@ -61,3 +61,15 @@
   color: #EB6A23;
   font-size: 18px;
 }
+.picBlock{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.map{border:0px;
+    width:600px;
+   height:450px;
+   display: block !important;
+  }
