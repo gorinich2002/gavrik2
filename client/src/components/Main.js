@@ -1,5 +1,5 @@
-import { Typography, Image } from 'antd';
-
+import { Typography, Image, Button } from 'antd';
+import {PhoneOutlined, MailOutlined, CarOutlined} from '@ant-design/icons'
 const { Title, Paragraph } = Typography;
 
 function Main(props) {
@@ -23,9 +23,18 @@ function Main(props) {
 
             Основатель компании начал торговать, когда ему исполнилось 5 лет, когда купил спички оптом в Стокгольме и продал их в своей небольшой деревне в розницу; впоследствии разносил товары лично и посылал их по почте, тогда это были ручки, карандаши, кошельки, рамки. В 1948 году в ассортименте впервые появилась мебель, а уже в 1958 году открылся первый магазин ПродамКирпич в Швеции. Сеть магазинов стала разрастаться, в 1963 году ПродамКирпич вышла на международный рынок, начав с Норвегии.</Paragraph>
 
-       
+            <Title level={2}>Схема проезда</Title>
+        
         <iframe className='map' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40520.15302614466!2d36.54433646588814!3d50.59906830091176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41266ae4774af22b%3A0x8be8e5556da2fa1a!2z0JHQmNCaLCDQkdC10LvQs9C-0YDQvtC00YHQutC40Lkg0LjQvdC00YPRgdGC0YDQuNCw0LvRjNC90YvQuSDQutC-0LvQu9C10LTQtiDQuNC80LXQvdC4INCS0LDQtNC40LzQsCDQkdGD0YDRhtC10LLQsA!5e0!3m2!1sru!2sru!4v1654588320677!5m2!1sru!2sru" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/>
-    
+        <Title level={2}>Контакты</Title>
+       
+      <div style={{display:'flex', flexDirection:"column", paddingLeft:'10%', paddingRight:'10%', height:200, justifyContent:'space-between', marginTop:100}}>
+      <Button size='large' type="primary"><a href='tel:+7 (980) 371-51-32'><PhoneOutlined />+7 (980) 371-51-32 </a></Button>
+       <Button size='large' type="primary"><a href='tel:+7 (472) 240-88-87'><PhoneOutlined />+7 (472) 240-88-87 </a></Button>
+       <Button size='large' type="primary"><a href='mailto:glekstroi31@mail.ru'><MailOutlined /> glekstroi31@mail.ru</a></Button>
+       <Button size='large' type="primary"><a href='https://goo.gl/maps/wciYWMbzHvc5uddx7'><CarOutlined /> Богдана Хмельницкого просп., 80</a></Button>
+      </div>
+       
     </>
 }
 export default Main;
