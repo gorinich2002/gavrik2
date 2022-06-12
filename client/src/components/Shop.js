@@ -3,9 +3,8 @@ import ProductList from './ProductList'
 import React, {
     useContext, useEffect, useMemo, useRef, useState
 } from "react";
-
 import './Shop.css'
-import { Pagination, Input, Button } from 'antd';
+import { Pagination, Input, Button, Carousel } from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
 
 
@@ -16,7 +15,6 @@ function Shop(props) {
     let [productList, setProductList] = useState([]);
     let [isLoaded, setLoaded] = useState(false);
     let [paginationCount, setPaginationCount] = useState(0);
-
     let [paginationArray, setPaginationArray] = useState([]);
 
 

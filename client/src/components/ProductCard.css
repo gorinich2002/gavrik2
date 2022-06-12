@@ -15,6 +15,7 @@
 }
 .productCard{
     margin: 10px !important;
+    width: min-content;
 
 }
 .productCard img{
@@ -26,4 +27,17 @@
 }
 .actionBtn{
     width: 100%;
+}
+
+.slider{
+
+    overflow: hidden;
+    width: 1288px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.sliderTape{
+    display: flex;
+    transition: 1s;
+
 }

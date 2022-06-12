@@ -11,6 +11,7 @@ import Content from './components/Content'
 import Cart from './components/Cart';
 import Shop from './components/Shop';
 import Main from './components/Main';
+import Footer from './components/Footer';
 import OrderForm from './components/OrderForm';
 import RegistrationForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm'
@@ -26,7 +27,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/main">
-          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Main /></Content></>)}
+          {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Main /></Content><Footer/></>)}
         </Route>
         <Route exact path="/shop">
           {withRouter(()=><><Header><NavBar setAuth={setAuth} auth={auth}/></Header><Content><Shop /></Content></>)}
