@@ -23,6 +23,15 @@ function Footer(props) {
                 <Button size='large' type="text"><a href='mailto:glekstroi31@mail.ru'><MailOutlined /> glekstroi31@mail.ru</a></Button>
                 <Button size='large' type="text"><a href='https://goo.gl/maps/wciYWMbzHvc5uddx7'><CarOutlined /> Богдана Хмельницкого просп., 80</a></Button>
             </div>
+            <div className='col'>
+                <span>Понедельник: с 8.00 до 18.00 </span>
+                <span>Вторник: с 8.00 до 18.00 </span>
+                <span>Среда: с 8.00 до 18.00 </span>
+                <span>Четверг: с 8.00 до 18.00 </span>
+                <span>Пятница: с 8.00 до 18.00 </span>
+                <span>Суббота: с 8.30 до 15.00 </span>
+                <span>Воскресенье: выходной</span>
+            </div>
         </footer>
     )
 }
