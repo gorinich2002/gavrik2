@@ -18,9 +18,7 @@ function OrderForm() {
 
             formData[targetEl.name] = targetEl.value
         }
-
         formData.cart = JSON.parse(localStorage.cart);
-
         axios.post('/api/order', formData).then(res => {
             if (res.data.msgType == 'err') {
                 message.error(res.data.msg)
@@ -35,7 +33,6 @@ function OrderForm() {
         })
 
     }
-
     return (
         <Card className='OrderForm'>
             <form method="POST" ref={formRef}>

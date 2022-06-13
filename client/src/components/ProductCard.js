@@ -1,5 +1,4 @@
 import './ProductCard.css'
-// import Button from './Button'
 import addProduct from '../cartHandlers/addProduct';
 import { deleteProduct } from '../cartHandlers/deleteProduct';
 import { isProductInCart } from '../cartHandlers/isProductInCart';
@@ -13,7 +12,6 @@ function ProductCard(props) {
     let isCart = !props.isCart
     let [inCart, setInCart] = useState(isProductInCart(product));
     let [countValue, setCountValue] = useState(1);
-
     function inputHandler(e) {
         let value = +e.target.value;
         if (value && value >= 0 && value <= 1000) {
@@ -31,7 +29,6 @@ function ProductCard(props) {
         }
     }
     useEffect(() => { product.count = countValue }, [countValue])
-    // console.log(inCart)
     return (
         <Card className='productCard'>
             <img src={product.imgSrc} />

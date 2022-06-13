@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function RegistrationForm() {
+export default function LoginForm() {
     const [formData, setFormData] = useState({});
     function inputChangeHandler({target:{name, value}}){
         setFormData(prev=>{return {...prev, [name]:value}})
@@ -31,20 +31,6 @@ export default function RegistrationForm() {
                 >
                     <Input onChange={inputChangeHandler} value={formData['name']} name='login' type="text" />
                 </Form.Item>
-                {/* <Form.Item
-                    label="Телефон"
-                    name="phone"
-                    rules={[{ required: true, message: 'Введите телефон' }]}
-                >
-                    <Input onChange={inputChangeHandler} value={formData['phone']} name='phone' type="text" />
-                </Form.Item> */}
-                {/* <Form.Item
-                    label="Адрес"
-                    name="address"
-                    rules={[{ required: true, message: 'Введите адрес' }]}
-                >
-                    <Input onChange={inputChangeHandler} value={formData['address']} name='address' type="text" />
-                </Form.Item> */}
                 <Form.Item
                     label="Пароль"
                     name="password"

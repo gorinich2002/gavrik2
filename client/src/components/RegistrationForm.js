@@ -46,20 +46,6 @@ export default function RegistrationForm() {
                 >
                     <Input onChange={inputChangeHandler} value={formData['email']} name='mail' type="text" />
                 </Form.Item>
-                {/* <Form.Item
-                    label="Телефон"
-                    name="phone"
-                    rules={[{ required: true, message: 'Введите телефон' }]}
-                >
-                    <Input onChange={inputChangeHandler} value={formData['phone']} name='phone' type="text" />
-                </Form.Item> */}
-                {/* <Form.Item
-                    label="Адрес"
-                    name="address"
-                    rules={[{ required: true, message: 'Введите адрес' }]}
-                >
-                    <Input onChange={inputChangeHandler} value={formData['address']} name='address' type="text" />
-                </Form.Item> */}
                 <Form.Item
                     label="Пароль"
                     name="password"

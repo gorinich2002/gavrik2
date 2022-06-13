@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import './Cart.css';
 
 function Cart({auth}) {
-    const [stateToggle, setState] = useState(true);
     try {
         let totalPrice = 0;
         function delElFromProductlist(elNum) {
@@ -22,8 +21,6 @@ function Cart({auth}) {
                 return <CartRow product={e} delFunc={delElFromProductlist} />
             }))
         }
-
-
         if (productList.length > 0) {
             return (
                 <>
